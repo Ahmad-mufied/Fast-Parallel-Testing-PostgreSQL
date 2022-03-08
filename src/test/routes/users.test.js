@@ -3,6 +3,10 @@ const buildApp = require('../../app');
 const UserRepo = require('../../repos/user-repo');
 const pool = require('../../pool');
 
+const { randomBytes } = require('crypto');
+const { default: migrate } = require('node-pg-migrate');
+const format = require('pg-format');
+
 beforeAll(() => {
     // Randomly generating a role name to connect to PG as
 
