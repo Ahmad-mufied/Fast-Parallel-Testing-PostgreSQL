@@ -9,6 +9,7 @@ const format = require('pg-format');
 
 beforeAll(() => {
     // Randomly generating a role name to connect to PG as
+    const roleName = 'a' + randomBytes(4).toString('hex');
 
     // Connect to PG as usual
 
