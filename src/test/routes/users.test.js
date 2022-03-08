@@ -34,6 +34,12 @@ beforeAll( async () => {
     await pool.close();
 
     // Run our migrations in the new schema
+    await migrate({
+        schema: roleName,
+        direction: up,
+        log: () => {},
+        noLock: true
+    });
 
     // Connect to PG as the newly created role
 
