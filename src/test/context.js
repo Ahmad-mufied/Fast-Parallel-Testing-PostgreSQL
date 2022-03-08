@@ -1,8 +1,11 @@
-
+const { randomBytes } = require('crypto');
+const { default: migrate } = require('node-pg-migrate');
+const format = require('pg-format');
+const pool = require('../pool');
 
 class Context {
     static async build() {
-        
+
     // Randomly generating a role name to connect to PG as
     const roleName = 'a' + randomBytes(4).toString('hex');
 
@@ -52,7 +55,14 @@ class Context {
         user: roleName,
         password: roleName
     });
-    }
+    
+    return new Context(roleName);
+
+   }
+
+   constructor(roleName) {
+       this.roleName = roleName;
+   }
 }
 
 module.exports = Context;
