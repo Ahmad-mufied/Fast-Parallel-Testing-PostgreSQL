@@ -22,7 +22,8 @@ beforeAll( async () => {
 
     // Create a new role
     await pool.query(format(
-        `CREATE ROLE %I WITH LOGIN PASSWORD`, roleName, roleName));
+        `CREATE ROLE %I WITH LOGIN PASSWORD $L`, roleName, roleName
+        ));
 
     // Create a schema with the same name
     await pool.query(format(
