@@ -38,7 +38,15 @@ beforeAll( async () => {
         schema: roleName,
         direction: up,
         log: () => {},
-        noLock: true
+        noLock: true,
+        dir: 'migrations',
+        databaseUrl: {
+            host: 'localhost',
+            port: 5432,
+            database: 'socialnetworknew-test',
+            user: roleName,
+            password: roleName
+        }
     });
 
     // Connect to PG as the newly created role
