@@ -78,6 +78,7 @@ class Context {
        await pool.query(format('DROP ROLE %I;', this.roleName));
 
        // Disconnect
+       await pool.close();
    }
 }
 
