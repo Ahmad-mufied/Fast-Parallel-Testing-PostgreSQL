@@ -4,6 +4,20 @@ const UserRepo = require('../../repos/user-repo');
 const pool = require('../../pool');
 
 beforeAll(() => {
+    // Randomly generating a role name to connect to PG as
+
+    // Connect to PG as usual
+
+    // Create a new role
+
+    // Create a schema with the same name
+
+    // Disconnect entirely from PG
+
+    // Run our migrations in the new schema
+
+    // Connect to PG as the newly created role
+
     return pool.connect({
       host: 'localhost',
       port: 5432,
