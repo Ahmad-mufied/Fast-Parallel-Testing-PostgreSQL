@@ -7,7 +7,7 @@ const Context = require('../context');
 
 let context;
 beforeAll( async () => {
-    const context = await Context.build();
+    context = await Context.build();
 });
 
 afterAll(() => {
