@@ -11,7 +11,7 @@ beforeAll( async () => {
 });
 
 afterAll(() => {
-    return pool.close();
+    return context.close();
 });
 
 
