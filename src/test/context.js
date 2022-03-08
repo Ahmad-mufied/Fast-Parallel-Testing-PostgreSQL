@@ -63,6 +63,16 @@ class Context {
    constructor(roleName) {
        this.roleName = roleName;
    }
+
+   async close() {
+       // Disconnect from PG
+
+       // Reconnect as our root user
+
+       // Delete the role and schema we created
+
+       // Disconnect
+   }
 }
 
 module.exports = Context;
