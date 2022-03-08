@@ -71,6 +71,7 @@ class Context {
        await pool.close(); 
 
        // Reconnect as our root user
+       await pool.connect(DEFAULT_OPTS);
        
 
        // Delete the role and schema we created
