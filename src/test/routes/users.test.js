@@ -20,8 +20,11 @@ beforeAll( async () => {
         password: 'root'
       });
 
-
     // Create a new role
+
+    await pool.query(`
+        CREATE ROLE ${roleName} WITH LOGIN PASSWORD '${roleName}';
+    `);
 
     // Create a schema with the same name
 
