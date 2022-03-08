@@ -36,7 +36,7 @@ beforeAll( async () => {
     // Run our migrations in the new schema
     await migrate({
         schema: roleName,
-        direction: up,
+        direction: 'up',
         log: () => {},
         noLock: true,
         dir: 'migrations',
