@@ -50,6 +50,14 @@ beforeAll( async () => {
     });
 
     // Connect to PG as the newly created role
+    await pool.connect({
+        host: 'localhost',
+        port: 5432,
+        database: 'socialnetworknew-test',
+        user: roleName,
+        password: roleName
+    });
+
 
     
 });
