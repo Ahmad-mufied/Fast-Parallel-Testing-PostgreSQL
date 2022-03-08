@@ -3,6 +3,14 @@ const { default: migrate } = require('node-pg-migrate');
 const format = require('pg-format');
 const pool = require('../pool');
 
+const DEFAULT_OPTS = {
+    host: 'localhost',
+    port: 5432,
+    database: 'socialnetworknew-test',
+    user: 'postgres',
+    password: 'root'
+}
+
 class Context {
     static async build() {
 
@@ -10,13 +18,7 @@ class Context {
     const roleName = 'a' + randomBytes(4).toString('hex');
 
     // Connect to PG as usual
-    await pool.connect({
-        host: 'localhost',
-        port: 5432,
-        database: 'socialnetworknew-test',
-        user: 'postgres',
-        password: 'root'
-      });
+    await pool.connect(DEFAULT_OPTS);
 
     // Create a new role
     await pool.query(format(
@@ -66,6 +68,7 @@ class Context {
 
    async close() {
        // Disconnect from PG
+        await pool.connect(DEFAULT_OPTS);
 
        // Reconnect as our root user
 
