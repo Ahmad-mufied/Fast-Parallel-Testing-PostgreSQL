@@ -31,6 +31,7 @@ beforeAll( async () => {
     `);
 
     // Disconnect entirely from PG
+    await pool.close();
 
     // Run our migrations in the new schema
 
