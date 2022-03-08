@@ -68,9 +68,10 @@ class Context {
 
    async close() {
        // Disconnect from PG
-        await pool.connect(DEFAULT_OPTS);
+       await pool.close(); 
 
        // Reconnect as our root user
+       
 
        // Delete the role and schema we created
 
