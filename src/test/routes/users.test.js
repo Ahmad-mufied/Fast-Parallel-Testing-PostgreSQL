@@ -20,7 +20,6 @@ afterAll(() => {
 
 it('create a user', async () => {
     const startingCount = await UserRepo.count();
-    expect(startingCount).toEqual(0);
 
     await request(buildApp())
       .post('/users')
@@ -28,5 +27,5 @@ it('create a user', async () => {
       .expect(200);
 
     const finishCount = await UserRepo.count();
-    expect(finishCount).toEqual(1);
+    expect(finishCount - startingCount).toEqual(1);
 });
