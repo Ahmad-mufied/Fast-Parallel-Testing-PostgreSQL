@@ -7,11 +7,19 @@ const { randomBytes } = require('crypto');
 const { default: migrate } = require('node-pg-migrate');
 const format = require('pg-format');
 
-beforeAll(() => {
+beforeAll( async () => {
     // Randomly generating a role name to connect to PG as
     const roleName = 'a' + randomBytes(4).toString('hex');
 
     // Connect to PG as usual
+    await pool.connect({
+        host: 'localhost',
+        port: 5432,
+        database: 'socialnetworknew-test',
+        user: 'postgres',
+        password: 'root'
+      });
+
 
     // Create a new role
 
@@ -23,13 +31,7 @@ beforeAll(() => {
 
     // Connect to PG as the newly created role
 
-    return pool.connect({
-      host: 'localhost',
-      port: 5432,
-      database: 'socialnetworknew-test',
-      user: 'postgres',
-      password: 'root'
-    });
+    
 });
 
 afterAll(() => {
